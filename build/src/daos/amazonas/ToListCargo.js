@@ -13,32 +13,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const connectionDB_1 = __importDefault(require("../../config/connection/connectionDB"));
-class AmazonasToList {
-    static getListAmazonas(sqlConsult, parameter, res) {
+class ToListCargo {
+    static getCargo(sqlSearch, params, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(parameter);
-            yield connectionDB_1.default.result(sqlConsult, parameter)
-                .then((result) => {
-                res.status(200).json(result.rows);
-            })
-                .catch((myErr) => {
-                console.log('Error in daos: ', myErr);
-                res.status(400).json({ respuesta: 'No esta trabajando el daos en amazonas' });
-            });
-        });
-    }
-    static detailsById(sqlSearch, params, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            console.log(params);
-            yield connectionDB_1.default.one(sqlSearch, params)
+            yield connectionDB_1.default.result(sqlSearch, params)
                 .then((dato) => {
-                return res.status(200).json(dato);
+                return res.status(200).json(dato.rows);
             })
                 .catch((miError) => {
                 console.log(miError);
-                return res.status(400).json({ answer: 'Error search from VehiclesDetails' });
+                return res.status(400).json({ answer: 'Error search from ToListCargo' });
             });
         });
     }
 }
-exports.default = AmazonasToList;
+exports.default = ToListCargo;

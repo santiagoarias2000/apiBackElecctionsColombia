@@ -9,6 +9,17 @@ class AmazonasControllerGet extends ToList_1.default {
     getMeListAmazonas(req, res) {
         AmazonasControllerGet.getListAmazonas(sql_toList_1.SQL_AMAZONAS_VIEW.VIEW, [], res);
     }
+    getMeListLeticia(req, res) {
+        AmazonasControllerGet.getListAmazonas(sql_toList_1.SQL_AMAZONAS_VIEW.VIEWLETICIA, [], res);
+    }
+    getMeListGobernador(req, res) {
+        const code_cor = req.params.codeCor;
+        const parametro = [code_cor];
+        AmazonasControllerGet.getListAmazonas(sql_toList_1.SQL_AMAZONAS_VIEW.VIEWGOBERNADOR, parametro, res);
+    }
+    getMeListArcesio(req, res) {
+        AmazonasControllerGet.getListAmazonas(sql_toList_1.SQL_AMAZONAS_VIEW.VIEWARCESIO, [], res);
+    }
 }
 const amazonasControllerGet = new AmazonasControllerGet();
 exports.default = amazonasControllerGet;

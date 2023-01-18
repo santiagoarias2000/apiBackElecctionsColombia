@@ -2,6 +2,7 @@ import cors from "cors";
 import morgan from "morgan";
 import express from "express";
 import AmazonasRoutes from "../../routes/AmazonasRoutes";
+import CasanareRoutes from "../../routes/CasanareRoutes";
 
 class Server {
   public app: express.Application;
@@ -22,6 +23,7 @@ class Server {
 
   public activeRoute(): void {
     this.app.use('/api/private/amazonas', AmazonasRoutes);
+    this.app.use('/api/private/casanare', CasanareRoutes);
   }
 
   public start(): void {

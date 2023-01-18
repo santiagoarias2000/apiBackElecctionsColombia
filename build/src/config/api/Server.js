@@ -7,6 +7,7 @@ const cors_1 = __importDefault(require("cors"));
 const morgan_1 = __importDefault(require("morgan"));
 const express_1 = __importDefault(require("express"));
 const AmazonasRoutes_1 = __importDefault(require("../../routes/AmazonasRoutes"));
+const CasanareRoutes_1 = __importDefault(require("../../routes/CasanareRoutes"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -22,6 +23,7 @@ class Server {
     }
     activeRoute() {
         this.app.use('/api/private/amazonas', AmazonasRoutes_1.default);
+        this.app.use('/api/private/casanare', CasanareRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get("PORT"), () => {
